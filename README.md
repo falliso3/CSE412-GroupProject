@@ -1,15 +1,50 @@
-To build locally:
-npm run build
+## Local Development
 
-To run locally (should be on some localhost port 5***)
-npm run dev (test)
-npm run start (production)
+Run commands from `my-app`:
 
-To install all dependencies:
+```bash
+cd my-app
 npm install
+npm run dev
+```
 
-You should not need to connect locally to Supabase at all as that is done through APIs in the code. If you do, here are the commands to install the needed packages, at least on Mac unfortunately:
-brew install supabase
-supabase start
+Production build:
 
-TO LAUNCH WITH VITE, NAVIGATE INTO THE my-app FOLDER. DO NOT TRY TO LAUNCH IN MAIN FOLDER. This was a stupid file directory quirk I decided not to fix because why the hell.
+```bash
+cd my-app
+npm run build
+```
+
+## Deploy to GitHub Pages
+
+This repo includes a GitHub Actions workflow at:
+`.github/workflows/deploy-github-pages.yml`
+
+### One-time setup
+
+1. Push this repo to GitHub.
+2. In GitHub, go to:
+   `Settings` -> `Pages`
+3. Under **Build and deployment**, set:
+   - **Source** = `GitHub Actions`
+4. Ensure your default deploy branch is `main` (the workflow triggers on pushes to `main`).
+
+### Deploy
+
+Push to `main`:
+
+```bash
+git add .
+git commit -m "Set up GitHub Pages deploy"
+git push origin main
+```
+
+GitHub Actions will build `my-app` and publish `my-app/dist` to GitHub Pages.
+
+### Site URL
+
+Your deployed app URL will be:
+
+`https://<your-github-username>.github.io/<your-repo-name>/`
+
+The Vite config already auto-sets the correct base path in CI using the repo name.
