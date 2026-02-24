@@ -2,11 +2,9 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
-const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1]
-const ghPagesBase =
-  process.env.GITHUB_ACTIONS === 'true' && repoName ? `/${repoName}/` : '/'
+const configuredBase = process.env.VITE_BASE_PATH
 
 export default defineConfig({
-  base: ghPagesBase,
+  base: configuredBase || '/',
   plugins: [react()],
 })
