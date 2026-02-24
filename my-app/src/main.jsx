@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
+//Just renders the root scene
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />

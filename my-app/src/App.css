@@ -1,42 +1,234 @@
+/*All the styling*/
+
 #root {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 1.25rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app-shell {
+  display: grid;
+  gap: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #2f56b8;
+}
+
+h1 {
+  margin: 0.25rem 0;
+  font-size: clamp(1.7rem, 2.6vw, 2.4rem);
+}
+
+.subtitle {
+  margin: 0;
+  color: #4f5a78;
+}
+
+.stats-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.stats-grid article {
+  border: 1px solid #d6d9e8;
+  border-radius: 10px;
+  padding: 0.9rem;
+  background: #f8f9ff;
+}
+
+.stats-grid h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.stats-grid p {
+  margin: 0.25rem 0 0;
+}
+
+.panel {
+  border: 1px solid #d6d9e8;
+  border-radius: 12px;
+  padding: 0.95rem;
+  background: #ffffff;
+}
+
+.panel-head h3 {
+  margin: 0;
+}
+
+.panel-head p {
+  margin: 0.3rem 0 0.75rem;
+  color: #4f5a78;
+}
+
+.filter-grid {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  margin-bottom: 0.8rem;
+}
+
+.inline-control {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.inline-control input,
+.inline-control select,
+td input[type='number'] {
+  border: 1px solid #bcc4df;
+  border-radius: 8px;
+  min-height: 2rem;
+  padding: 0.2rem 0.5rem;
+  font: inherit;
+  background: #fff;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid #e4e7f5;
+  padding: 0.55rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  color: #3a4366;
+  letter-spacing: 0.05em;
+}
+
+.card-title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.card-sub {
+  margin: 0.1rem 0 0;
+  color: #677396;
+  font-size: 0.82rem;
+}
+
+.card-thumb {
+  width: 48px;
+  height: 66px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #c7cee7;
+  background: #eef2ff;
+  display: block;
+}
+
+.deck-toolbar {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  align-items: end;
+  margin-bottom: 0.65rem;
+}
+
+button {
+  border: 1px solid #2f56b8;
+  border-radius: 8px;
+  background: #2f56b8;
+  color: #fff;
+  min-height: 2rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #21408d;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+button.danger {
+  border-color: #a11730;
+  background: #a11730;
+}
+
+button.danger:hover {
+  background: #7d1224;
+}
+
+.deck-status-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.valid {
+  color: #0d7a1f;
+  font-weight: 700;
+}
+
+.invalid {
+  color: #a11730;
+  font-weight: 700;
+}
+
+.muted-row {
+  background: #f2f3f9;
+  color: #606780;
+}
+
+.config-block {
+  display: block;
+  border: 1px dashed #bcc4df;
+  border-radius: 8px;
+  background: #f8f9ff;
+  padding: 0.7rem;
+}
+
+.empty-state {
+  margin: 0.2rem 0;
+  color: #606780;
+}
+
+@media (max-width: 760px) {
+  #root {
+    padding: 0.6rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .topbar {
+    align-items: stretch;
+    flex-direction: column;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .deck-status-row {
+    flex-direction: column;
+    gap: 0;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
