@@ -1,10 +1,20 @@
-Local development:
+# My App
+
+## Local Development
+
+```bash
 cd my-app
 npm install
 npm run dev
+```
 
-Production:
+## Production Build
+
+```bash
 cd my-app
 npm run build
+```
 
-Deployment can be found in the GitHub pages workflow in the github folder
+## Deployment
+
+Deployment is handled via the GitHub Pages workflow in the `.github/` folder.
